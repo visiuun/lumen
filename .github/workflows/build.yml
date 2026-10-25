@@ -24,7 +24,7 @@ jobs:
           - target: i686-pc-windows-msvc
             asset: lumen-x86.exe
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Toolchain
         run: rustup target add ${{ matrix.target }}
@@ -36,7 +36,7 @@ jobs:
         shell: pwsh
         run: Copy-Item "target/${{ matrix.target }}/release/lumen.exe" "${{ matrix.asset }}"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.asset }}
           path: ${{ matrix.asset }}
